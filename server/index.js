@@ -16,14 +16,14 @@ app.use(express.static(publicDirectoryPath))
 app.get('', (req, res) => res.json({ title: 'Weather' }))
 
 app.get('/about', (req, res) => {
-    res.render('about', {
+    res.json({
         title: 'About Me',
         name: 'Mauro Bassini'
     })
 })
 
 app.get('/help', (req, res) => {
-    res.render('help', {
+    res.json({
         title: 'Help Page',
         message: 'This is a custom web with support purposes',
         name: 'Mauro Bassini'
@@ -61,7 +61,7 @@ app.get('/weather', (req, res) => {
 })
 
 app.get('/help/*', (req,res) => {
-    res.render('404', {
+    res.json({
         title: '404',
         name: 'Mauro Bassini',
         errorMessage: 'Help article not found.'
